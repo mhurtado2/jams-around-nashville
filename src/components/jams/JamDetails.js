@@ -21,7 +21,8 @@ export const JamDetails = () => {
       <h3 className="jam-detail-name">Jam details: {jam?.name}</h3>
       <img src={jam?.imageUrl} alt={jam?.name} className="jam-img" />
       <div className="jam-details">Genre: {jam?.genre?.name}</div>
-      <div className="jam-details">Location: {jam?.location?.name}</div>
+      <div className="jam-details">Location Name: {jam?.location?.name}</div>
+      <div className="jam-details">Location Adress: {jam?.location?.address}</div>
     </div>
   )
 }
