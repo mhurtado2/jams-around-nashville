@@ -32,6 +32,11 @@ export const NavBar = () => {
         <Link className="navbar__link" to="/new">
           New Jam
         </Link>
+        </li>
+        <li className="navbar__item">
+        <Link className="navbar__link" to="">
+         Log Out 
+        </Link>
       </li>
     </ul>
   )
