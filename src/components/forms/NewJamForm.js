@@ -5,45 +5,53 @@ export const NewJamForm = () => {
   const [userChoices, setUserChoices] = useState({
     name: '',
     imageUrl: '',
-    seasonId: 0,
-    categoryId: 0,
+    genreId: 0,
+    address: '',
+    areaOfTownId: 0
   })
-  const [seasons, setSeasons] = useState([])
-  const [categories, setCategories] = useState([])
+  const [jams, setJams] = useState([])
+  const [genres, setGenres] = useState([])
+  const [locations, setLocations] = useState([])
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://localhost:8088/seasons')
+    fetch('http://localhost:8088/jams')
       .then((res) => res.json())
-      .then((seasonsData) => {
-        setSeasons(seasonsData)
+      .then((jamsData) => {
+        setJams(jamsData)
       })
 
-    fetch('http://localhost:8088/categories')
+    fetch('http://localhost:8088/genres')
       .then((res) => res.json())
-      .then((categoriesData) => {
-        setCategories(categoriesData)
+      .then((genresData) => {
+        setGenres(genresData)
       })
+      fetch('http://localhost:8088/areasOfTown')
+      .then((res) => res.json())
+      .then((locationsData) => {
+        setLocations(locationsData)
+      })
+      
   }, [])
 
-  const handleSaveDecoration = (evt) => {
+  const handleSaveJam = (evt) => {
     evt.preventDefault()
 
     if (
       userChoices.name &&
       userChoices.imageUrl &&
-      userChoices.seasonId &&
-      userChoices.categoryId
+      userChoices.genreId &&
+      userChoices.address
     ) {
-      fetch('http://localhost:8088/items', {
+      fetch('http://localhost:8088/jams', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(userChoices),
       }).then(() => {
-        fetch(`http://localhost:8088/items`).then(() => {
+        fetch(`http://localhost:8088/jams`).then(() => {
           navigate('/')
         })
       })
@@ -54,7 +62,7 @@ export const NewJamForm = () => {
 
   return (
     <form className="decoration-form">
-      <h2 className="decoration-form-title">Add a decoration to the catalog</h2>
+      <h2 className="decoration-form-title">Add a Jam</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Name: </label>
@@ -93,22 +101,22 @@ export const NewJamForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <div>Season: </div>
-          {seasons.map((seasonObj) => {
+          <div>Genre: </div>
+          {genres.map((genreObj) => {
             return (
-              <div key={seasonObj.id} className="radio">
+              <div key={genreObj.id} className="radio">
                 <label>
                   <input
                     type="radio"
-                    value={seasonObj.id}
-                    checked={userChoices.seasonId === seasonObj.id}
+                    value={genreObj.id}
+                    checked={userChoices.genreId === genreObj.id}
                     onChange={(event) => {
                       const copy = { ...userChoices }
-                      copy.seasonId = parseInt(event.target.value)
+                      copy.genreId = parseInt(event.target.value)
                       setUserChoices(copy)
                     }}
                   />
-                  {seasonObj.name}
+                  {genreObj.name}
                 </label>
               </div>
             )
@@ -117,22 +125,40 @@ export const NewJamForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <div>Category: </div>
-          {categories.map((categoryObj) => {
+          <label htmlFor="imgUrl">Address: </label>
+          <input
+            required
+            id="imgUrl"
+            type="text"
+            className="form-control"
+            placeholder="example.com"
+            value={userChoices.address}
+            onChange={(event) => {
+              const copy = { ...userChoices }
+              copy.address = event.target.value
+              setUserChoices(copy)
+            }}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <div>Area of Town: </div>
+          {locations.map((areaObj) => {
             return (
-              <div key={categoryObj.id} className="radio">
+              <div key={areaObj.id} className="radio">
                 <label>
                   <input
                     type="radio"
-                    value={categoryObj.id}
-                    checked={userChoices.categoryId === categoryObj.id}
+                    value={areaObj.id}
+                    checked={userChoices.areaOfTownId === areaObj.id}
                     onChange={(event) => {
                       const copy = { ...userChoices }
-                      copy.categoryId = parseInt(event.target.value)
+                      copy.areaOfTownId = parseInt(event.target.value)
                       setUserChoices(copy)
                     }}
                   />
-                  {categoryObj.name}
+                  {areaObj.name}
                 </label>
               </div>
             )
@@ -142,10 +168,10 @@ export const NewJamForm = () => {
       <button
         className="btn"
         onClick={(event) => {
-          handleSaveDecoration(event)
+          handleSaveJam(event)
         }}
       >
-        Add Decoration
+        Add Jam
       </button>
     </form>
   )

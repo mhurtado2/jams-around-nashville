@@ -9,6 +9,7 @@ import { NavBar } from './components/nav/NavBar'
 import { NewJamForm } from './components/forms/NewJamForm'
 
 import './styles.css'
+import { JamEdit } from './components/jams/EditJam'
 
 
 export const JamsAroundNashville = () => {
@@ -30,6 +31,7 @@ export const JamsAroundNashville = () => {
         <Route path="blues" element={<BluesJams />} />
         <Route path="rbandsoul" element={<RbJams />} />
         <Route path="new" element={<NewJamForm />} /> 
+        <Route path="edit/:jamId" element={<JamEdit />} />
       </Route>
     </Routes>
   )

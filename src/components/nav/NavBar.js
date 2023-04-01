@@ -34,6 +34,8 @@ export const NavBar = () => {
         </Link>
         </li>
         <li className="navbar__item">
+        </li>
+        <li className="navbar__item">
         <Link className="navbar__link" to="">
          Log Out 
         </Link>

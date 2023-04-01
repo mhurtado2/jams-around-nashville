@@ -26,6 +26,7 @@ export const AllJams = () => {
     <div className="jams-container">
       {jams.map((jamObj) => {
         return (
+          <>
           <div className="jam-card" key={jamObj.id}>
             <img
               src={jamObj.imageUrl}
@@ -35,10 +36,32 @@ export const AllJams = () => {
                 navigateToJamDetails(jamObj.id)
               }}
             />
-            <div className="jam-name">{jamObj.name}</div>
+            <div className="jam-name">{jamObj.jamName}</div>
           </div>
+          <div>
+          
+            <button
+            className="edit-btn"
+            onClick={() => navigate(`edit/${jamObj.id}`)}
+          >
+            Edit
+          </button>
+        
+        </div>
+        </>
         )
       })}
     </div>
   )
 }
+
+// <div>
+// { 
+//   <button
+//     className="edit-btn"
+//     onClick={() => navigate(`edit/${jamObj.id}`)}
+//   >
+//     Edit
+//   </button>
+//  }
+// </div>
