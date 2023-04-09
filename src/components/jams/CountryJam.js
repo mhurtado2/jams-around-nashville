@@ -26,7 +26,9 @@ export const CountryJams = () => {
               alt={jamObj.name}
               className="jam-img"
             />
-            <div className="jam-name">{jamObj.name}</div>
+            <div className="jam-name">{jamObj.jamName}</div>
+            <div className="venue-name">{jamObj.venueName}</div>
+            <div className="jam-name">{jamObj.address}</div>
           </div>
         )
       })}

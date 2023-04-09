@@ -23,10 +23,12 @@ export const BluesJams = () => {
           <div className="jam-card" key={jamObj.id}>
             <img
               src={jamObj.imageUrl}
-              alt={jamObj.name}
+              alt={jamObj.jamName}
               className="jam-img"
             />
-            <div className="jam-name">{jamObj.name}</div>
+            <div className="jam-name">{jamObj.jamName}</div>
+            <div className="venue-name">{jamObj.venueName}</div>
+            <div className="jam-name">{jamObj.address}</div>
           </div>
         )
       })}
