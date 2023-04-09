@@ -34,6 +34,7 @@ export const NavBar = () => {
           New Jam
         </Link>
         </li>
+      
 
          {localStorage.getItem("jam_user") ? (
         <li className="navbar__item navbar__logout">
@@ -48,9 +49,10 @@ export const NavBar = () => {
             Logout
           </Link>
         </li>
+       
       ) : (
         ""
       )}
     </ul>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Label } from "reactstrap";
+// import { Label } from "reactstrap";
 import "./Login.css";
 
 
@@ -40,10 +40,10 @@ export const Login = () => {
           <h3>Please sign in</h3>
           <div className="login-form">
             <fieldset className="loginFieldSet">
-            <Label className="email" htmlFor="inputEmail">
+            <label className="email" htmlFor="inputEmail">
               {" "}
               Email address{" "}
-            </Label>
+            </label>
             <input
               type="email"
               value={email}

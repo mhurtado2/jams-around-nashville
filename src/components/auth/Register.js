@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import { Form, Label } from "reactstrap";
+// import { Form, Label } from "reactstrap";
 
 export const Register = (props) => {
     const [customer, setCustomer] = useState({
@@ -56,22 +56,22 @@ export const Register = (props) => {
 
     return (
         <main style={{ textAlign: "center" }}>
-            <Form className="form--login" onSubmit={handleRegister}>
+            <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register </h1>
                 <fieldset className="loginFieldSet">
-                    <Label htmlFor="fullName"> Full Name </Label>
+                    <label htmlFor="fullName"> Full Name </label>
                     <input onChange={updateCustomer}
                            type="text" id="fullName" className="form-control-login"
                            placeholder="Enter your name" required autoFocus />
                 </fieldset>
                 <fieldset className="loginFieldSet">
-                    <Label htmlFor="email"> Email address </Label>
+                    <label htmlFor="email"> Email address </label>
                     <input onChange={updateCustomer}
                         type="email" id="email" className="form-control-login"
                         placeholder="Email address" required />
                 </fieldset>
                     <button className="submit" type="submit"> Register </button>
-            </Form>
+            </form>
         </main>
     )
 }
