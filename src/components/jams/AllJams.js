@@ -60,9 +60,6 @@ export const AllJams = () => {
               }}
             />
             <div className="jam-name">{jamObj.jamName}</div>
-          </div>
-          <div>
-
 
         {jamUserObject.admin ||
               jamUserObject.id === jamObj.userId ? (
@@ -76,8 +73,7 @@ export const AllJams = () => {
                 <></>
               )}
 
-      
-          {jamUserObject.admin ||
+           {jamUserObject.admin ||
               jamUserObject.id === jamObj.userId ? (
                 <button
                   onClick={() => {
@@ -95,8 +91,7 @@ export const AllJams = () => {
                 <></>
               )}
 
-        
-        </div>
+          </div>
         </>
         )
       })}

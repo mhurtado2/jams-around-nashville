@@ -1,12 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+
+
+
 .navbar {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    background-color: lightgray;
+    background-color: rgb(197, 63, 63);
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 1px 3px 4px grey;
-  
   }
   
   .navbar__item {
@@ -14,6 +18,9 @@
     list-style-type: none;
     text-align: center;
     margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
   }
   
   .navbar__logout {
@@ -47,4 +54,7 @@
     width: 5rem;
     text-decoration: none;
     border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
   }

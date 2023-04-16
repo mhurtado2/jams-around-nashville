@@ -7,7 +7,7 @@ export const NavBar = () => {
   return (
     <ul className="navbar">
       <Link className="logo__link navbar__link" to="/">
-        <img className="logo__img" src="" alt="Jams Around Nashville" />
+        <img className="logo__img" src="https://static.vecteezy.com/system/resources/previews/005/738/951/original/line-minimalist-acoustic-guitar-logo-design-graphic-symbol-icon-illustration-creative-idea-vector.jpg" alt="Jams Around Nashville" />
       </Link>
       <li className="navbar__item">
         <Link className="navbar__link" to="/blues">
