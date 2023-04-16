@@ -62,13 +62,7 @@ export const AllJams = () => {
             <div className="jam-name">{jamObj.jamName}</div>
           </div>
           <div>
-{/*           
-            <button
-            className="edit-btn"
-            onClick={() => navigate(`edit/${jamObj.id}`)}
-          >
-            Edit
-          </button> */}
+
 
         {jamUserObject.admin ||
               jamUserObject.id === jamObj.userId ? (
@@ -101,18 +95,6 @@ export const AllJams = () => {
                 <></>
               )}
 
-                {/* <button
-                  onClick={() => {
-                    fetch(`http://localhost:8088/jams/${jamObj.id}`, {
-                      method: "DELETE",
-                    }).then(() => {
-                      getAllJams();
-                    });
-                  }}
-                  className="delete-btn"
-                >
-                  Delete{" "}
-                </button> */}
         
         </div>
         </>

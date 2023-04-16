@@ -61,11 +61,11 @@ export const JamEdit = () => {
   };
 
   return (
-    <form className="GearForm">
+    <form className="decoration-form">
       <h3 className="gearForm__title"></h3>
       <div className="borderThis">
       <div className="insideBorderTwo">
-      <fieldset className="smallerFieldSet">
+      <fieldset>
         <div className="form-group">
           <label htmlFor="name">Jam Name:</label>
           <textarea
@@ -85,7 +85,7 @@ export const JamEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset className="smallerFieldSet">
+      <fieldset>
         <div className="form-group">
           <label htmlFor="name">Venue Name:</label>
           <textarea
@@ -105,7 +105,7 @@ export const JamEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset className="smallerFieldSet">
+      <fieldset>
         <div className="form-group">
           <label htmlFor="imageUrl">Image:</label>
           <textarea
@@ -125,7 +125,7 @@ export const JamEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset className="smallerFieldSet">
+      <fieldset>
         <div className="form-group">
           <label htmlFor="address">Adress:</label>
           <textarea
@@ -145,7 +145,7 @@ export const JamEdit = () => {
         </div>
       </fieldset>
 
-      <fieldset className="smallerFieldSet" id="centerThis">
+      <fieldset id="centerThis">
       <div className="form-group">
   <div className="typeLabel">Area Of Town: </div>
   {areas.map((areaObj) => {
