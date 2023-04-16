@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 export const NewJamForm = () => {
   const [userChoices, setUserChoices] = useState({
-    name: '',
+    jamName: '',
+    venueName:'',
     imageUrl: '',
     genreId: 0,
     address: '',
@@ -35,11 +36,25 @@ export const NewJamForm = () => {
       
   }, [])
 
+  const localJamUser = localStorage.getItem("jam_user")
+  const jamUserObject = JSON.parse(localJamUser)
+
   const handleSaveJam = (evt) => {
     evt.preventDefault()
 
+    const jamToSendToAPI ={
+        userId: jamUserObject.id,
+        jamName: userChoices.jamName,
+        venueName:userChoices.venueName,
+        imageUrl: userChoices.imageUrl,
+        genreId: userChoices.genreId,
+        address: userChoices.address,
+        areaOfTownId: userChoices.areaOfTownId
+      };
+
     if (
-      userChoices.name &&
+      userChoices.jamName &&
+      userChoices.venueName &&
       userChoices.imageUrl &&
       userChoices.genreId &&
       userChoices.address
@@ -49,7 +64,7 @@ export const NewJamForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userChoices),
+        body: JSON.stringify(jamToSendToAPI),
       }).then(() => {
         fetch(`http://localhost:8088/jams`).then(() => {
           navigate('/')
@@ -65,17 +80,35 @@ export const NewJamForm = () => {
       <h2 className="decoration-form-title">Add a Jam</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="jamName">Jam Name: </label>
           <input
             required
             id="name"
             type="text"
             className="form-control"
             placeholder="Item name"
-            value={userChoices.name}
+            value={userChoices.jamName}
             onChange={(event) => {
               const copy = { ...userChoices }
-              copy.name = event.target.value
+              copy.jamName = event.target.value
+              setUserChoices(copy)
+            }}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="venueName">Venue Name: </label>
+          <input
+            required
+            id="name"
+            type="text"
+            className="form-control"
+            placeholder="Item name"
+            value={userChoices.venueName}
+            onChange={(event) => {
+              const copy = { ...userChoices }
+              copy.venueName = event.target.value
               setUserChoices(copy)
             }}
           />
