@@ -61,18 +61,18 @@
   
   
   
-  .gear-detail-container {
+  .jam-detail-container {
     text-align: center;
     margin: 20px;
   }
   
-  .gear-detail-name {
+  .jam-detail-name {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
     font-size: 1.5rem;
   }
   
-  .gear-details {
+  .jam-details {
     font-size: 1.25rem;
     font-family: monospace;
   }

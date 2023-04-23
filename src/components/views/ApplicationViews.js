@@ -7,6 +7,8 @@ import { JazzJams } from '../jams/JazzJam'
 import { RbJams } from '../jams/RbAndSoulJam'
 import { NewJamForm } from '../forms/NewJamForm'
 import { JamEdit } from '../jams/EditJam'
+import { YourGenres } from '../jams/YourGenres'
+
 
 export const ApplicationViews = () => {
   return (
@@ -31,6 +33,7 @@ export const ApplicationViews = () => {
         <Route path="rbandsoul" element={<RbJams />} />
         <Route path="new" element={<NewJamForm />} /> 
         <Route path="edit/:jamId" element={<JamEdit />} />
+        <Route path="userGenres" element={<YourGenres />} /> 
       </Route>
     </Routes>
   )
